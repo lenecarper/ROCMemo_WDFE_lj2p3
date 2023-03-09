@@ -1,5 +1,5 @@
-// Card objects
-let objects = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', 'anchor', 'paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bomb', 'bomb', 'diamond', 'diamond', 'book', 'book', 'phone', 'phone'],
+// Array of card objects
+let objects = ['paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', 'anchor', 'bomb', 'bomb', 'diamond', 'diamond', 'book', 'book', 'phone', 'phone'],
 
     // HTML selectors
     $container = $('.container'),
@@ -7,7 +7,7 @@ let objects = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', '
     $rating = $('.fa-star'),
     $moves = $('.moves'), $timer = $('.timer'), $restart = $('.restart'), $deck = $('.deck'),
 
-    // Variables
+    // Declare variables
     nowTime, allOpen = [], match = 0, second = 0, moves = 0, wait = 420, totalCard = objects.length / 2,
 
     // Rating system with stars
@@ -32,7 +32,7 @@ function shuffle(array) {
 // Initialize the cards when the webpage loads
 function init() {
 
-    // Shuffle the card objects defined earlier with the shuffle function
+    // Shuffle the cards to randomize card placement
     let allCards = shuffle(objects);
     $deck.empty();
 
@@ -41,22 +41,25 @@ function init() {
     moves = 0;
     $moves.text('0');
 
-    // Loop until 16 cards are created along with the values of the card objects
+    // Loop until 20 cards are created along with the values of the card objects
     for (let i = 0; i < allCards.length; i++) {
         $deck.append($('<li class="card"><i class="fa fa-' + allCards[i] + '"></i></li>'))
     }
     addCardListener();
 
-    // Resets the timer to 0 when the function is called
+    // Resets the timer to 0 when the restart button is clicked
     resetTimer(nowTime);
     second = 0;
+    // Display the current time, counting up from zero, initialize time on load
     $timer.text(`${second}`)
     initTime();
 }
 
-// Score system with stars, the player starts with 3 stars which deplete with extra moves
+// Score system with stars, the player starts with 3 stars which degrade with extra moves
 function rating(moves) {
+    // Store the current rating in a dynamic variable
     let rating = 3;
+    // Check whether the player has gone past the move limit and add/remove stars accordingly
     if (moves > stars3 && moves < stars2) {
         $rating.eq(3).removeClass('fa-star').addClass('fa-star-o');
     } else if (moves > stars2 && moves < star1) {
@@ -65,12 +68,13 @@ function rating(moves) {
         $rating.eq(1).removeClass('fa-star').addClass('fa-star-o');
         rating = 1;
     }
-    // Return the score
+    // Return the score and rating
     return { score: rating };
 }
 
-// Show a bootstrap modal with the player's statistics after the player matches all the cards
+// Show a Bootstrap modal with the player's statistics after the player matches all the cards
 function gameOver(moves, score) {
+    // Parse the div with the "winnerText" ID with the content of the time, moves and score
     $('#winnerText').text(`In ${second} seconds, you did a total of ${moves} moves with a score of ${score}. Well done!`);
     $('#winnerModal').modal('toggle');
 }
