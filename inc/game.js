@@ -1,5 +1,5 @@
 // Card objects
-let objects = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', 'anchor', 'paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bomb', 'bomb', 'diamond', 'diamond'],
+let objects = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', 'anchor', 'paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bomb', 'bomb', 'diamond', 'diamond', 'book', 'book', 'phone', 'phone'],
 
     // HTML selectors
     $container = $('.container'),
@@ -32,7 +32,7 @@ function shuffle(array) {
 // Initialize the cards when the webpage loads
 function init() {
 
-    // Shuffle the card objects stated earlier with the shuffle function
+    // Shuffle the card objects defined earlier with the shuffle function
     let allCards = shuffle(objects);
     $deck.empty();
 
@@ -106,7 +106,7 @@ let addCardListener = function () {
                 }, wait);
                 match++;
 
-                // If cards are not matched, there is a delay of 630ms, and the cards will turn back cover up.
+                // If cards are not matched, there is a delay before the cards will turn back cover up
             } else {
                 $deck.find('.open').addClass('notmatch');
                 setTimeout(function () {

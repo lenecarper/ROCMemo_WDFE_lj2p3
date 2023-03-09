@@ -14,13 +14,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="winnerModal-label">We Have a Winner!</h4>
+                    <h4 class="modal-title" id="winnerModal-label">You won!</h4>
                 </div>
                 <div class="modal-body">
                     <p id="winnerText"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" onclick="init(), $rating.removeClass('fa-star-o').addClass('fa-star'); " class="btn btn-default" data-dismiss="modal">Go Again!</button>
+                    <button type="button" onclick="init(), $rating.removeClass('fa-star-o').addClass('fa-star'); " class="btn btn-default" data-dismiss="modal">Save & Replay</button>
                 </div>
             </div>
         </div>
