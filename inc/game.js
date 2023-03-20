@@ -11,9 +11,9 @@ let objects = ['paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bicycle', 'bic
     nowTime, allOpen = [], match = 0, second = 0, moves = 0, wait = 840, totalCard = objects.length / 2,
 
     // Rating system with stars
-    stars3 = 14,
-    stars2 = 16,
-    star1 = 20;
+    stars3 = 18,
+    stars2 = 20,
+    star1 = 22;
 
 // Shuffle the cards in a random array to prevent card repetition
 function shuffle(array) {
