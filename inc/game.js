@@ -8,7 +8,7 @@ let objects = ['paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bicycle', 'bic
     $moves = $('.moves'), $timer = $('.timer'), $restart = $('.restart'), $deck = $('.deck'),
 
     // Declare variables
-    nowTime, allOpen = [], match = 0, second = 0, moves = 0, wait = 420, totalCard = objects.length / 2,
+    nowTime, allOpen = [], match = 0, second = 0, moves = 0, wait = 840, totalCard = objects.length / 2,
 
     // Rating system with stars
     stars3 = 14,
@@ -31,6 +31,9 @@ function shuffle(array) {
 
 // Initialize the cards when the webpage loads
 function init() {
+
+    // Remove this after debugging
+    $('#winnerModal').modal('toggle');
 
     // Shuffle the cards to randomize card placement
     let allCards = shuffle(objects);
@@ -110,7 +113,7 @@ let addCardListener = function () {
                 }, wait);
                 match++;
 
-                // If cards are not matched, there is a delay before the cards will turn back cover up
+            // If cards are not matched, there is a delay before the cards will turn back cover up
             } else {
                 $deck.find('.open').addClass('notmatch');
                 setTimeout(function () {
