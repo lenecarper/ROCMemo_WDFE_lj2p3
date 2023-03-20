@@ -1,3 +1,5 @@
+<?php require ('inc/functions.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!--  -->
