@@ -1,4 +1,8 @@
 <?php
+    # Define global variables
+    $errors = array();
+
+
     function db()
     { // Connect to the MySQL database
     $db = new mysqli('localhost', 'root', '', 'rocmemo');
@@ -7,6 +11,8 @@
     if($db -> connect_errno)
     {
         echo "Connection failed " . $db -> connect_error;
+        array_push($errors, "The database has ran into a critical problem.");
+        echo $errors;
         exit();
     }
 
@@ -22,10 +28,18 @@
         $username = mysqli_real_escape_string($db, $_POST['username']);
         $time = mysqli_real_escape_string($db, "Time here");
         $score = mysqli_real_escape_string($db, "Score here");
+        global $errors;
         # Gather all the data into an SQL query
-        $upload = "INSERT into highscores (username, time, clicks) VALUES ($username, $time, $score)";
-        # Query the data to be sent into the corresponding database tables
-        $query = $db->query($upload) or die($db->error);
+        if (count($errors) == 0)
+        {
+            $upload = "INSERT into highscores (username, time, clicks) VALUES ($username, $time, $score)";
+            # Query the data to be sent into the corresponding database tables
+            $query = $db->query($upload) or die($db->error);
+        } else
+        {
+            array_push($errors, "An error has occured, please try again.");
+            echo $errors;
+        }
     }
 
     function getScore()
@@ -43,8 +57,7 @@
         {
             echo "Highscore";
         }
-        }
-        else
+        } else
         { // If there are no highscores to display in the leaderboard
         echo "No highscores yet! Be the first one by playing a match.";
         }
