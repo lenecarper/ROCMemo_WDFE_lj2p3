@@ -28,7 +28,7 @@
         $query = $db->query($upload) or die($db->error);
     }
 
-    function getScores()
+    function getScore()
     {   // Connect to the SQL database
         $db = db();
 
