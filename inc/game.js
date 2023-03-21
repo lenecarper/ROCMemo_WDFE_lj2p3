@@ -80,6 +80,9 @@ function gameOver(moves, score) {
     // Parse the div with the "winnerText" ID with the content of the time, moves and score
     $('#winnerText').text(`In ${second} seconds, you did a total of ${moves} moves with a score of ${score}. Well done!`);
     $('#winnerModal').modal('toggle');
+    // save to db (call ajax function)
+    saveScore(moves, score);
+
 }
 
 // Restarts the game when the reset button is clicked, confirm the click came from the user
@@ -158,6 +161,22 @@ function resetTimer(timer) {
     if (timer) {
         clearInterval(timer);
     }
+}
+
+function saveScore(a, b)
+{
+    console.log(a,b);
+    // ajax call
+    $.ajax('handleData.php', {
+        type: 'POST',  // http method
+        data: { myData: 'This is my data.' },  // data to submit
+        success: function (data, status, xhr) {
+            $('p').append('status: ' + status + ', data: ' + data);
+        },
+        error: function (jqXhr, textStatus, errorMessage) {
+                $('p').append('Error' + errorMessage);
+        }
+    });
 }
 
 init();

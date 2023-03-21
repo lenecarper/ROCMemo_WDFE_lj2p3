@@ -17,7 +17,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="winnerModal-label">You won!</h4><br>
-                    <form method="POST" action="inc/functions.php">
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" name="username" id="username-form" placeholder="Username">
                         <input type="submit" value="Submit to leaderboard" name="submit" id="submit-form">
                     </form>

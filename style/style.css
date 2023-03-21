@@ -158,7 +158,7 @@ h1 {
 
 .modal-content
 {
-    background-image: url(../img/frontend_winscreen.png);
+    background: purple;
     background-position: 100%;
     color: black !important;
     font-weight: 900;

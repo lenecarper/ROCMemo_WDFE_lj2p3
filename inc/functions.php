@@ -23,22 +23,27 @@
     # Function to retrieve and upload the data into the database
     function uploadScore()
     {
-        # Define variables to store data in and connect to the SQL database
-        $db = db();
-        $username = mysqli_real_escape_string($db, $_POST['username']);
-        $time = mysqli_real_escape_string($db, "Time here");
-        $score = mysqli_real_escape_string($db, "Score here");
-        global $errors;
-        # Gather all the data into an SQL query
-        if (count($errors) == 0)
-        {
-            $upload = "INSERT into highscores (username, time, clicks) VALUES ($username, $time, $score)";
-            # Query the data to be sent into the corresponding database tables
-            $query = $db->query($upload) or die($db->error);
-        } else
-        {
-            array_push($errors, "An error has occured, please try again.");
-            echo $errors;
+        // is there a post request?
+        if($_SERVER['REQUEST_METHOD'] == "POST")
+        {            
+            # Define variables to store data in and connect to the SQL database
+            $db = db();
+            $username = mysqli_real_escape_string($db, $_POST['username']);
+            $time = mysqli_real_escape_string($db, $_POST['username']);
+            $score = mysqli_real_escape_string($db, $_POST['username']);
+            global $errors;
+            # Gather all the data into an SQL query
+            if (isset($_POST['username']))
+            {
+                $upload = "INSERT into highscores (`username`, `time`, `clicks`) VALUES ('$username' , '$time', $score)";
+                # Query the data to be sent into the corresponding database tables
+                $query = $db->query($upload) or die($db->error);
+                header("location:../index.php");
+            } else
+            {
+                array_push($errors, "An error has occured, please try again.");
+                echo $errors;
+            }
         }
     }
 
