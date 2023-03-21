@@ -35,10 +35,10 @@
             # Gather all the data into an SQL query
             if (isset($_POST['username']))
             {
-                $upload = "INSERT into highscores (`username`, `time`, `clicks`) VALUES ('$username' , '$time', $score)";
+                $upload = "INSERT into highscores (`username`, `time`, `clicks`) VALUES ('$username' , '$time', '$score')";
                 # Query the data to be sent into the corresponding database tables
                 $query = $db->query($upload) or die($db->error);
-                header("location:../index.php");
+                header("location:index.php");
             } else
             {
                 array_push($errors, "An error has occured, please try again.");
