@@ -56,6 +56,7 @@ function init() {
     // Display the current time, counting up from zero, initialize time on load
     $timer.text(`${second}`)
     initTime();
+    saveScore();
 }
 
 // Score system with stars, the player starts with 3 stars which degrade with extra moves
@@ -165,16 +166,19 @@ function resetTimer(timer) {
 
 function saveScore(a, b)
 {
-    console.log(a,b);
+    // console.log(a, b);
+    console.log('Listening for new inputs');
     // ajax call
-    $.ajax('handleData.php', {
+    $.ajax('index.php', {
         type: 'POST',  // http method
-        data: { myData: 'This is my data.' },  // data to submit
+        data: "Test",  // data to submit
         success: function (data, status, xhr) {
-            $('p').append('status: ' + status + ', data: ' + data);
+            // $('p').append('status: ' + status + ', data: ' + data);
+            console.log('status: ' + status + ' data: ' + data);
         },
         error: function (jqXhr, textStatus, errorMessage) {
-                $('p').append('Error' + errorMessage);
+                // $('p').append('Error' + errorMessage);
+                console.log('Error: ' + errorMessage);
         }
     });
 }

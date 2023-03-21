@@ -1,4 +1,4 @@
-<?php require ('inc/functions.php'); db(); uploadScore(); ?>
+<?php require ('inc/functions.php'); db(); uploadScore(); var_dump($_POST); ?>
 
 <!DOCTYPE html>
 <html lang="en">
