@@ -1,4 +1,4 @@
-<?php require ('inc/functions.php'); db(); uploadScore(); getScore(); ?>
+<?php require ('inc/functions.php'); db(); uploadScore(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,6 +56,7 @@
         <div id="leaderboard-outer">
             <div class="leaderboard">
                 <h1>Leaderboard</h1>
+                <?php getScore(); ?>
             </div>
         </div>
     </div>

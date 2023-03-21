@@ -18,6 +18,7 @@ body {
 
 body {
     background: rgb(24, 26, 27);
+    color: #969696;
 }
 
 .container {
@@ -185,6 +186,13 @@ h1 {
 {
     color: white !important;
     text-align: center;
+}
+
+#leaderboard-container
+{
+    position: absolute;
+    top: 0;
+    left: 2em;
 }
 
 /* Responsive layout for mobile users */

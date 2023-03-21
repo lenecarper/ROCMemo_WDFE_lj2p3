@@ -51,7 +51,7 @@
     {   // Connect to the SQL database
         $db = db();
 
-        $data = 'SELECT * from highscores ORDER BY username DESC';
+        $data = 'SELECT * from highscores ORDER BY `time` ASC, `clicks` ASC';
         $result = $db->query($data) or die($db->error);
         // Insert all stored data into the database
         $score = $result->fetch_all(MYSQLI_ASSOC);
@@ -60,9 +60,9 @@
         { // Loop through all the highscores and print them out into the leaderboard
         foreach($score as $point) 
         {
-            echo "<div class='leaderboard-username'>" . $point["username"] . "</div>" . "<br>";
-            echo "<div class='leaderboard-time'>" . $point["time"] . "</div>" . "<br>";
-            echo "<div class='leaderboard-score'>" . $point["clicks"] . "</div>" . "<br>";
+            echo "<div class='leaderboard-username'>" . $point["username"] . "</div>" . " ";
+            echo "<div class='leaderboard-time'>" . $point["time"] . " seconds" ."</div>" . " ";
+            echo "<div class='leaderboard-score'>" . $point["clicks"] . " clicks" . "</div>" . "<br>";
         }
         } else
         { // If there are no highscores to display in the leaderboard
