@@ -5,7 +5,7 @@ let objects = ['paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bicycle', 'bic
     $container = $('.container'),
     $scorePanel = $('.score-panel'),
     $rating = $('.fa-star'),
-    $moves = $('.moves'), $timer = $('.timer'), $restart = $('.restart'), $deck = $('.deck'),
+    $moves = $('.moves'), $timer = $('.timer'), $restart = $('.restart'), $deck = $('.deck'), $time = initTime();
 
     // Declare variables
     nowTime, allOpen = [], match = 0, second = 0, moves = 0, wait = 840, totalCard = objects.length / 2,
@@ -164,17 +164,17 @@ function resetTimer(timer) {
     }
 }
 
-function saveScore(a, b)
+function saveScore(moves, score)
 {
     // console.log(a, b);
     console.log('Listening for new inputs');
     // ajax call
     $.ajax('index.php', {
         type: 'POST',  // http method
-        data: "Test",  // data to submit
+        data: "Data to submit goes here",  // data to submit
         success: function (data, status, xhr) {
             // $('p').append('status: ' + status + ', data: ' + data);
-            console.log('status: ' + status + ' data: ' + data);
+            console.log('moves: ' + moves + ' score: ' + score + ' time: ' + `${second}`);
         },
         error: function (jqXhr, textStatus, errorMessage) {
                 // $('p').append('Error' + errorMessage);
