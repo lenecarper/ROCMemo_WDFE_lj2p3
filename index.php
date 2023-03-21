@@ -17,7 +17,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="winnerModal-label">You won!</h4><br>
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <input type="text" name="username" id="username-form" placeholder="Username">
+                        <input type="text" name="username" id="username-form" placeholder="Username" maxlength="20">
                         <input type="submit" value="Submit to leaderboard" name="submit" id="submit-form">
                     </form>
                 </div>
@@ -61,8 +61,7 @@
         </div>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js'></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="inc/game.js"></script>
 </body>
 

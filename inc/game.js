@@ -171,7 +171,7 @@ function saveScore(moves, score)
     // ajax call
     $.ajax('index.php', {
         type: 'POST',  // http method
-        data: "Data to submit goes here",  // data to submit
+        data: { myData: 'This is my data.' },  // data to submit
         success: function (data, status, xhr) {
             // $('p').append('status: ' + status + ', data: ' + data);
             console.log('moves: ' + moves + ' score: ' + score + ' time: ' + `${second}`);
