@@ -1,8 +1,7 @@
-<?php require ('inc/functions.php'); db(); uploadScore(); var_dump($_POST); ?>
+<?php require ('inc/functions.php'); db(); uploadScore(); getScore(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<!--  -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,6 +51,13 @@
             </div>
         </section>
         <ul class="deck"></ul>
+    </div>
+    <div id="leaderboard-container">
+        <div id="leaderboard-outer">
+            <div class="leaderboard">
+                <h1>Leaderboard</h1>
+            </div>
+        </div>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"

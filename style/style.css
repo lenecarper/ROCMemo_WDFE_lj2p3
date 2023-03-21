@@ -181,9 +181,10 @@ h1 {
     background: linear-gradient(300deg, rgba(2,0,36,1) 0%, rgba(120,9,121,1) 77%, rgba(255,0,245,0.37586372439600846) 100%) !important;
 }
 
-#username-form
+.leaderboard-outer
 {
-
+    color: white !important;
+    text-align: center;
 }
 
 /* Responsive layout for mobile users */
