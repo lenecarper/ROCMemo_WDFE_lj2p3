@@ -86,6 +86,8 @@ function gameOver(moves, score) {
 
 }
 
+amountOfClicks = $(".moves").text();
+
 // Restarts the game when the reset button is clicked, confirm the click came from the user
 $restart.bind('click', function (confirmed) {
     if (confirmed) {
@@ -164,23 +166,43 @@ function resetTimer(timer) {
     }
 }
 
-function saveScore(moves, score)
+
+// AJAX POST Request to save time & score to the database
+// function saveScore(moves, score)
+// {
+//     // console.log(a, b);
+//     console.log('Listening for new inputs');
+//     // ajax call
+//     $.ajax('saveDataInDb.php', {
+//         type: 'POST',  // http method
+//         data: { myData: 'This is my data.' },  // data to submit
+//         success: function (data, status, xhr) {
+//             // $('p').append('status: ' + status + ', data: ' + data);
+//             console.log('moves: ' + moves + ' score: ' + score + ' time: ' + `${second}`);
+//         },
+//         error: function (jqXhr, textStatus, errorMessage) {
+//                 // $('p').append('Error' + errorMessage);
+//                 console.log('Error: ' + errorMessage);
+//         }
+//     });
+// }
+
+// AJAX POST request to save data into database
+function saveScore()
 {
-    // console.log(a, b);
-    console.log('Listening for new inputs');
-    // ajax call
-    $.ajax('index.php', {
-        type: 'POST',  // http method
-        data: { myData: 'This is my data.' },  // data to submit
-        success: function (data, status, xhr) {
-            // $('p').append('status: ' + status + ', data: ' + data);
-            console.log('moves: ' + moves + ' score: ' + score + ' time: ' + `${second}`);
+    //get the values to save in DB
+    playerName = $("#name").val();
+    playerClicks = $("#counter").text();
+    playerTime = $("#timer").text();
+    $.ajax({
+        type: 'POST',
+        url: 'inc/saveData.php',
+        data: {
+            name: playerName,
+            clicks: playerClicks,
+            time: playerTime
         },
-        error: function (jqXhr, textStatus, errorMessage) {
-                // $('p').append('Error' + errorMessage);
-                console.log('Error: ' + errorMessage);
-        }
-    });
-}
+        success: function(data){}
+    });}
 
 init();
