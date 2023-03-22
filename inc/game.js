@@ -191,8 +191,8 @@ function resetTimer(timer) {
 function saveScore()
 {
     //get the values to save in DB
-    playerName = $("#name").val();
-    playerClicks = $("#counter").text();
+    playerName = $("#username-form").val();
+    playerClicks = $("#moves").text();
     playerTime = $("#timer").text();
     $.ajax({
         type: 'POST',
