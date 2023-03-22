@@ -191,8 +191,11 @@ h1 {
 #leaderboard-container
 {
     position: absolute;
-    top: 0;
+    top: 2em;
     left: 2em;
+    padding: .5em;
+    background-color: #580c504c !important;
+    border-radius: 5px;
 }
 
 /* Responsive layout for mobile users */

@@ -51,7 +51,7 @@
     {   // Connect to the SQL database
         $db = db();
 
-        $data = 'SELECT * from highscores ORDER BY `time` ASC, `clicks` ASC';
+        $data = 'SELECT * from highscores ORDER BY `time` ASC, `clicks` ASC LIMIT 8';
         $result = $db->query($data) or die($db->error);
         // Insert all stored data into the database
         $score = $result->fetch_all(MYSQLI_ASSOC);
