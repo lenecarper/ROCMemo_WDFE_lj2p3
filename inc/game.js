@@ -33,7 +33,7 @@ function shuffle(array) {
 function init() {
 
     // Remove this after debugging
-    // $('#winnerModal').modal('toggle');
+    $('#winnerModal').modal('toggle');
 
     // Shuffle the cards to randomize card placement
     let allCards = shuffle(objects);
