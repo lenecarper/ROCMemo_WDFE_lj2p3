@@ -166,34 +166,13 @@ function resetTimer(timer) {
     }
 }
 
-
-// AJAX POST Request to save time & score to the database
-// function saveScore(moves, score)
-// {
-//     // console.log(a, b);
-//     console.log('Listening for new inputs');
-//     // ajax call
-//     $.ajax('saveDataInDb.php', {
-//         type: 'POST',  // http method
-//         data: { myData: 'This is my data.' },  // data to submit
-//         success: function (data, status, xhr) {
-//             // $('p').append('status: ' + status + ', data: ' + data);
-//             console.log('moves: ' + moves + ' score: ' + score + ' time: ' + `${second}`);
-//         },
-//         error: function (jqXhr, textStatus, errorMessage) {
-//                 // $('p').append('Error' + errorMessage);
-//                 console.log('Error: ' + errorMessage);
-//         }
-//     });
-// }
-
 // AJAX POST request to save data into database
 function saveScore()
 {
-    //get the values to save in DB
+    // Get the values to save into the database
     playerName = $("#username-form").val();
-    playerClicks = $("#moves").text();
-    playerTime = $("#timer").text();
+    $moves = $('.moves');
+    $timer = $('.timer');
     $.ajax({
         type: 'POST',
         url: 'inc/saveData.php',
