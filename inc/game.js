@@ -171,8 +171,8 @@ function saveScore()
 {
     // Get the values to save into the database
     playerName = $("#username-form").val();
-    $moves = $('.moves');
-    $timer = $('.timer');
+    playerClicks = $('.moves').text();
+    playerTime = $('.timer').text();
     $.ajax({
         type: 'POST',
         url: 'inc/saveData.php',
