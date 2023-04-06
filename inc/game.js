@@ -2,9 +2,12 @@
 let objects = ['paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', 'anchor', 'bomb', 'bomb', 'diamond', 'diamond', 'book', 'book', 'phone', 'phone'],
 
     // HTML selectors
-    $container = $('.container'),
-    $scorePanel = $('.score-panel'),
-    $rating = $('.fa-star'),
+    $container = $('.container');
+    $scorePanel = $('.score-panel');
+    $rating = $('.fa-star');
+    var name;
+    var time;
+    var clicks;
     $moves = $('.moves'), $timer = $('.timer'), $restart = $('.restart'), $deck = $('.deck'), $time = initTime();
 
     // Declare variables
@@ -80,6 +83,8 @@ function rating(moves) {
 function gameOver(moves, score) {
     // Parse the div with the "winnerText" ID with the content of the time, moves and score
     $('#winnerText').text(`In ${second} seconds, you did a total of ${moves} moves with a score of ${score}. Well done!`);
+    $('#moves').text(`in ${moves} you moved it`);
+    $('#timer').text(`${second}`);
     $('#winnerModal').modal('toggle');
     // save to db (call ajax function)
     saveScore(moves, score);
@@ -170,7 +175,7 @@ function resetTimer(timer) {
 function saveScore()
 {
     // Get the values to save into the database
-    playerName = $("#username-form").val();
+    playerName = $("#username").val();
     playerClicks = $('.moves').text();
     playerTime = $('.timer').text();
     $.ajax({
@@ -181,7 +186,9 @@ function saveScore()
             clicks: playerClicks,
             time: playerTime
         },
-        success: function(data){}
+        success: function(data){
+            console.log(data);
+        }
     });}
 
 init();
