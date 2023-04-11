@@ -5,10 +5,8 @@ let objects = ['paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bicycle', 'bic
     $container = $('.container');
     $scorePanel = $('.score-panel');
     $rating = $('.fa-star');
-    var name;
-    var time;
-    var clicks;
-    $moves = $('.moves'), $timer = $('.timer'), $restart = $('.restart'), $deck = $('.deck'), $time = initTime();
+    var name, time, clicks;
+    $moves = $('#moves'), $timer = $('#timer'), $restart = $('.restart'), $deck = $('.deck'), $time = initTime();
 
     // Declare variables
     nowTime, allOpen = [], match = 0, second = 0, moves = 0, wait = 840, totalCard = objects.length / 2,
@@ -175,9 +173,10 @@ function resetTimer(timer) {
 function saveScore()
 {
     // Get the values to save into the database
-    playerName = $("#username").val();
-    playerClicks = $('.moves').text();
-    playerTime = $('.timer').text();
+    var playerName = $('#username-form').val();
+    var playerClicks = $('#moves').text();
+    var playerTime = $('#timer').text();
+
     $.ajax({
         type: 'POST',
         url: 'inc/saveData.php',
@@ -189,6 +188,7 @@ function saveScore()
         success: function(data){
             console.log(data);
         }
-    });}
+    });
+}
 
 init();

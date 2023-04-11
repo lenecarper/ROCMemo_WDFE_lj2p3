@@ -45,8 +45,8 @@
                     <i class="fa fa-star"></i>
                 </li>
             </ul>
-            <span class="moves">0</span> Moves | Time:
-            <span class="timer">0</span> s
+            <span id="moves">0</span> Moves | Time:
+            <span id="timer">0</span> s
             <div class="restart">
                 <i class="fa fa-repeat"></i>
             </div>
