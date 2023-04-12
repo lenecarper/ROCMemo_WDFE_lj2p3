@@ -84,9 +84,9 @@ function gameOver(moves, score) {
     $('#moves').text(`in ${moves} you moved it`);
     $('#timer').text(`${second}`);
     $('#winnerModal').modal('toggle');
-    // save to db (call ajax function)
+    // Stop timer, save player data to database
+    resetTimer();
     saveScore(moves, score);
-
 }
 
 amountOfClicks = $(".moves").text();
@@ -173,7 +173,7 @@ function resetTimer(timer) {
 function saveScore()
 {
     // Get the values to save into the database
-    var playerName = $('#username').val();
+    var playerName = $('#username-form').val();
     var playerClicks = $('#moves').text();
     var playerTime = $('#timer').text();
 
@@ -189,6 +189,7 @@ function saveScore()
             console.log(data);
         }
     });
+    alert('test');
 }
 
 init();

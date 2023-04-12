@@ -8,8 +8,8 @@ function uploadScore()
     if (isset($_POST['submit']))
     {
         $playerName = $_POST['name'];
-        $playerTime = $_POST['time'];
         $playerClicks = $_POST['clicks'];
+        $playerTime = $_POST['time'];
 
         # Gather all the data into an SQL query
         $saveHighscore = "INSERT INTO highscores (username, time, clicks) VALUES ('" . $playerName .  "', '" . $playerTime . "', '" . $playerClicks . "')";

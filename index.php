@@ -20,7 +20,7 @@
                     <!-- Form returns itself as the page to run actions on -->
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" name="username" id="username-form" placeholder="Username" maxlength="20">
-                        <input type="submit" onclick="init(), $rating.removeClass('fa-star-o').addClass('fa-star');" data-dismiss="modal" name="submit" id="submit-form" value="Submit & Replay">
+                        <input type="submit" onclick="init(), saveScore(), $rating.removeClass('fa-star-o').addClass('fa-star');" data-dismiss="modal" name="submit" id="submit-form" value="Submit & Replay">
                     </form>
                 </div>
                 <div class="modal-body">
