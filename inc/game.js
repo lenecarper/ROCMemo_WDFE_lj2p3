@@ -34,7 +34,7 @@ function shuffle(array) {
 function init() {
 
     // Remove this after debugging
-    $('#winnerModal').modal('toggle');
+    // $('#winnerModal').modal('toggle');
 
     // Shuffle the cards to randomize card placement
     let allCards = shuffle(objects);
@@ -57,7 +57,6 @@ function init() {
     // Display the current time, counting up from zero, initialize time on load
     $timer.text(`${second}`)
     initTime();
-    saveScore();
 }
 
 // Score system with stars, the player starts with 3 stars which degrade with extra moves
@@ -81,7 +80,7 @@ function rating(moves) {
 function gameOver(moves, score) {
     // Parse the div with the "winnerText" ID with the content of the time, moves and score
     $('#winnerText').text(`In ${second} seconds, you did a total of ${moves} moves with a score of ${score}. Well done!`);
-    $('#moves').text(`in ${moves} you moved it`);
+    $('#moves').text(`${moves}`);
     $('#timer').text(`${second}`);
     $('#winnerModal').modal('toggle');
     // Stop timer, save player data to database
@@ -189,7 +188,6 @@ function saveScore()
             console.log(data);
         }
     });
-    alert('test');
 }
 
 init();

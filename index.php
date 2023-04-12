@@ -1,4 +1,4 @@
-<?php require ('inc/functions.php'); require('inc/saveData.php'); db(); uploadScore(); ?>
+<?php require ('inc/functions.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
